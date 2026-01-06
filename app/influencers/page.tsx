@@ -6,7 +6,8 @@ import { getInfluencers } from "@/app/lib/storage";
 import { Influencer } from "@/app/types/influencer";
 
 export default function InfluencersPage() {
-  const [data, setData] = useState<Influencer[]>([]);
+  return <h1>Influencers OK</h1>;
+}
 
   useEffect(() => {
     setData(getInfluencers());
