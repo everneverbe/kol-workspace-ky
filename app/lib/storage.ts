@@ -1,0 +1,8 @@
+export function save<T>(key: string, value: T) {
+  localStorage.setItem(key, JSON.stringify(value));
+}
+
+export function load<T>(key: string, fallback: T): T {
+  const raw = localStorage.getItem(key);
+  return raw ? JSON.parse(raw) : fallback;
+}
