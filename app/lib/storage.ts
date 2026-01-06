@@ -1,8 +1,12 @@
-export function save<T>(key: string, value: T) {
-  localStorage.setItem(key, JSON.stringify(value));
+import { Influencer } from "@/app/types/influencer";
+
+const KEY = "kol_influencers";
+
+export function getInfluencers(): Influencer[] {
+  if (typeof window === "undefined") return [];
+  return JSON.parse(localStorage.getItem(KEY) || "[]");
 }
 
-export function load<T>(key: string, fallback: T): T {
-  const raw = localStorage.getItem(key);
-  return raw ? JSON.parse(raw) : fallback;
+export function saveInfluencers(data: Influencer[]) {
+  localStorage.setItem(KEY, JSON.stringify(data));
 }
