@@ -1,13 +1,15 @@
-import { Influencer } from "@/types/influencer";
+"use client";
+
+import { Influencer } from "@/app/types/influencer";
 
 export default function InfluencerList({ data }: { data: Influencer[] }) {
-  if (!data.length) return <p>No influencer yet</p>;
+  if (data.length === 0) return <p>No influencers yet</p>;
 
   return (
     <ul>
-      {data.map(i => (
-        <li key={i.id}>
-          {i.name} — {i.platform} — Rp{i.rate.toLocaleString()}
+      {data.map((inf, idx) => (
+        <li key={idx}>
+          {inf.name} — {inf.platform}
         </li>
       ))}
     </ul>
