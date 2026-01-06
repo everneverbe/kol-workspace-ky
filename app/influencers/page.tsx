@@ -1,9 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import InfluencerList from "@/app/components/InfluencerList";
-import { getInfluencers } from "@/app/lib/storage";
-import { Influencer } from "@/app/types/influencer";
+import InfluencerList from "../components/InfluencerList";
+
+export default function InfluencersPage() {
+  return (
+    <main>
+      <InfluencerList data={[]} />
+    </main>
+  );
+}
 
 export default function InfluencersPage() {
   return <h1>Influencers OK</h1>;
