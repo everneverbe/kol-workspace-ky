@@ -1,13 +1,18 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import InfluencerList from "../components/InfluencerList";
+import { getInfluencers } from "../lib/storage";
+import { Influencer } from "../types/influencer";
 
 export default function InfluencersPage() {
-  return (
-    <main>
-      <InfluencerList data={[]} />
-    </main>
-  );
+  const [data, setData] = useState<Influencer[]>([]);
+
+  useEffect(() => {
+    setData(getInfluencers());
+  }, []);
+
+  return <InfluencerList data={data} />;
 }
 
 export default function InfluencersPage() {
